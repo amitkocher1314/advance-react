@@ -1,0 +1,5 @@
+/* this css was common in many css file so we imported here and with use of <card> we assign this css property to all enclosed */
+.card {
+    border-radius: 12px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+  }
