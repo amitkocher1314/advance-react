@@ -5,6 +5,7 @@ import React, {useState} from "react";
 
 const ExpenseItem = (props)=>{
   const [title,setTitle] = useState(props.title);
+  
     function eventhandler(){
         setTitle("amit");        
         console.log("button clicked");

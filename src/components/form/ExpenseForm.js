@@ -1,15 +1,17 @@
 import React, {useState} from "react";
-import "./ExpenseForm.css"
-const  ExpenseForm = ()=>{
+import "./ExpenseForm.css";
+
+
+const  ExpenseForm = (props)=>{
   const [title,setTitle] = useState("");
-  const [amount,setAmount] = useState("");
+  const [price,setPrice] = useState("");
   const [date,setDate] = useState("");
     // console.log(title);
   const titlehandler=(event)=>{
     setTitle(event.target.value);
   };
   const amounthandler=(event)=>{
-    setAmount(event.target.value);
+    setPrice(event.target.value);
   };
   const datehandler=(event)=>{
     setDate(event.target.value);
@@ -18,13 +20,13 @@ const  ExpenseForm = ()=>{
   const formhandler=(event)=>{
       event.preventDefault();
       const expensedata = {
-        TITLE: title,
-        AMOUNT: amount,
-        DATE:new Date(date)
+        title: title,
+        price: price,
+        date:new Date(date)
       }
-      console.log(expensedata);
+      props.onsavedata(expensedata);
       setTitle("");
-      setAmount("");
+      setPrice("");
       setDate("");
   }
     return(
@@ -38,7 +40,7 @@ const  ExpenseForm = ()=>{
         </div>
         <div className="new-expense__control">
           <label htmlFor="amount">Amount</label>
-          <input type="number" value={amount} id="amount" onChange={amounthandler} />
+          <input type="number" value={price} id="amount" onChange={amounthandler} />
         </div>
         <div className="new-expense__control">
           <label htmlFor="date">Date</label>
